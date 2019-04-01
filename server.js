@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+// var PORT = 3000;
 
 // Initialize Express
 var app = express();
@@ -27,15 +27,13 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ugandanews";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ugandanews";
 
-mongoose.connect(MONGODB_URI);
-// if(process.env.MONGODB_URI){
-//   mongoose.connect(process.env.MONGODB_URI);
-// }
-// else {
-// mongoose.connect("mongodb://localhost/ugandanews", { useNewUrlParser: true });
-// }
+// mongoose.connect(MONGODB_URI);
+
+var PORT = process.env.PORT || 3000;
+// If deployed to heroku, use the deployed database (process.env.MONGODB_URI). Otherwise use the local adventist_news database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ugandanews";
 // mongoose.connect("mongodb://localhost/ugandanews", { useNewUrlParser: true });
 
 // Routes

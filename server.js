@@ -27,15 +27,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ugandanews";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ugandanews";
 
-// mongoose.connect(MONGODB_URI);
-if(process.env.MONGODB_URI){
-  mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-mongoose.connect("mongodb://localhost/ugandanews", { useNewUrlParser: true });
-}
+mongoose.connect(MONGODB_URI);
+// if(process.env.MONGODB_URI){
+//   mongoose.connect(process.env.MONGODB_URI);
+// }
+// else {
+// mongoose.connect("mongodb://localhost/ugandanews", { useNewUrlParser: true });
+// }
 // mongoose.connect("mongodb://localhost/ugandanews", { useNewUrlParser: true });
 
 // Routes
